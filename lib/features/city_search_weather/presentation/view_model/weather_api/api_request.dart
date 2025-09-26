@@ -15,14 +15,11 @@ class ApiRequest {
 
       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
       return weatherModel;
-      // handling errors from dio request
     } on DioException catch (e) {
       final String badResponse =
           e.response?.data['error']['message'] ?? "oops there 's an error !";
       return throw Exception(badResponse);
-    }
-    // handling errors from other reasons
-    catch (e) {
+    } catch (e) {
       throw Exception("oops there 's an error !");
     }
   }
