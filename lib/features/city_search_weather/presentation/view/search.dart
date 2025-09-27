@@ -21,7 +21,7 @@ class Search extends StatelessWidget {
             },
             decoration: InputDecoration(
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                  const EdgeInsets.symmetric(vertical: 35, horizontal: 10),
               label: Text(
                 "Search",
                 style: TextStyle(
