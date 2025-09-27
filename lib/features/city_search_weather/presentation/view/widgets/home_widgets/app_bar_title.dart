@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../../../core/shared_widgets/custom_text.dart';
-import '../../../../../../core/utiles/colors.dart';
 import '../../../../../../core/utiles/fonts.dart';
 
 class AppBarTitle extends StatelessWidget {
@@ -9,7 +8,6 @@ class AppBarTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomText(
-        text: '"WEATHER APP"',
-        style: AppFonts.font30.copyWith(color: AppColors.primary));
+        text: 'WEATHER APP', style: AppFonts.font26.copyWith(fontSize: 30));
   }
 }

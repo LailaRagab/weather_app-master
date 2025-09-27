@@ -9,9 +9,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Column(mainAxisSize: MainAxisSize.max, children: [
+        const SizedBox(
+          height: 30,
+        ),
         AppBarTitle(),
-        SizedBox(
-          height: 10,
+        const SizedBox(
+          height: 20,
         ),
         AppBarTextfield(),
       ]),

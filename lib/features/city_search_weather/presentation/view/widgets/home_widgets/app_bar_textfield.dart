@@ -22,7 +22,7 @@ class _AppBarTextfieldState extends State<AppBarTextfield> {
       decoration: InputDecoration(
         hintText: "Search city name",
         iconColor: AppColors.primary,
-        hintStyle: AppFonts.font14.copyWith(color: AppColors.primary),
+        hintStyle: AppFonts.font26.copyWith(fontSize: 14),
         border: InputBorder.none,
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
@@ -33,7 +33,7 @@ class _AppBarTextfieldState extends State<AppBarTextfield> {
         filled: true,
         fillColor: AppColors.grey,
         suffixIcon: SearchIconButton(
-          cityName: editController.text,
+          controller: editController,
         ),
       ),
     );

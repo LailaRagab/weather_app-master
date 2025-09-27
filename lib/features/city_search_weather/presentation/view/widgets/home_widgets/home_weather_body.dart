@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/weather_icon_and_temp_row.dart';
 
+import '../../../../../../core/shared_widgets/custom_text.dart';
 import '../../../../../../core/utiles/fonts.dart';
 import '../../../../models/weather_model.dart';
 
@@ -11,24 +13,18 @@ class HomeWeatherBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(weatherModel.cityName, style: AppFonts.font26),
-        SizedBox(
+        CustomText(
+          text: weatherModel.cityName,
+          style: AppFonts.font26,
+        ),
+        const SizedBox(
           height: 40,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image(
-                image: weatherModel.imageIcon.contains("https:")
-                    ? NetworkImage(weatherModel.imageIcon)
-                    : NetworkImage("https:${weatherModel.imageIcon}")),
-            Text("${weatherModel.avgTemp}", style: AppFonts.font26),
-          ],
-        ),
-        SizedBox(
+        WeatherIconAndTempRow(weatherModel: weatherModel),
+        const SizedBox(
           height: 40,
         ),
-        Text(weatherModel.condition, style: AppFonts.font26),
+        CustomText(text: weatherModel.condition, style: AppFonts.font26)
       ],
     );
   }

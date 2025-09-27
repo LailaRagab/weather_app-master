@@ -7,13 +7,4 @@ class AppFonts {
     fontWeight: FontWeight.bold,
     color: AppColors.primary,
   );
-
-  static TextStyle font14 = const TextStyle(
-    fontSize: 14,
-  );
-
-  static TextStyle font30 = const TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-  );
 }
