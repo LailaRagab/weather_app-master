@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utiles/colors.dart';
 import '../view_model/weather_api/api_request.dart';
@@ -29,7 +28,7 @@ class Search extends StatelessWidget {
                     color: AppColors.primary, fontWeight: FontWeight.bold),
               ),
               hintText: "Enter City Name",
-              suffixIcon: Icon(Icons.search),
+              suffixIcon: const Icon(Icons.search),
               border: const OutlineInputBorder(),
               focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: AppColors.primary)),
