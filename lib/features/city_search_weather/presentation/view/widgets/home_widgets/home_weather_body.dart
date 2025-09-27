@@ -13,10 +13,10 @@ class HomeWeatherBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(weatherModelThird.cityName, style: AppFonts.weatherDetails),
+        Text(weatherModelThird.cityName, style: AppFonts.font26),
         Text(
             "update at: ${weatherModelThird.updateDate.hour}:${weatherModelThird.updateDate.minute}",
-            style: AppFonts.updateDetails),
+            style: AppFonts.font30),
         const SizedBox(
           height: 40,
         ),
@@ -27,17 +27,16 @@ class HomeWeatherBody extends StatelessWidget {
                 image: weatherModelThird.imageIcon.contains("https:")
                     ? NetworkImage(weatherModelThird.imageIcon)
                     : NetworkImage("https:${weatherModelThird.imageIcon}")),
-            Text("${weatherModelThird.avgTemp}",
-                style: AppFonts.weatherDetails),
+            Text("${weatherModelThird.avgTemp}", style: AppFonts.font26),
             Column(
               children: [
                 Text(
                   "maxTemp: ${weatherModelThird.maxTemp.round()}",
-                  style: AppFonts.tempDetails,
+                  style: AppFonts.font14,
                 ),
                 Text(
                   "minTemp: ${weatherModelThird.minTemp.round()}",
-                  style: AppFonts.tempDetails,
+                  style: AppFonts.font14,
                 ),
               ],
             )
@@ -46,7 +45,7 @@ class HomeWeatherBody extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
-        Text(weatherModelThird.condition, style: AppFonts.weatherDetails),
+        Text(weatherModelThird.condition, style: AppFonts.font26),
       ],
     );
   }

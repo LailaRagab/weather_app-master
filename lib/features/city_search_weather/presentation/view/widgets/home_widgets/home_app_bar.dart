@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/search_icon_button.dart';
 
-import '../../search.dart';
+import 'app_bar_title.dart';
 
-AppBar buildAppBar(BuildContext context) {
-  return AppBar(
-    // backgroundColor: AppColors.primary,
-    title: Text(
-      "Weather App",
-      //   style: TextStyle(
-      //   color: AppColors.white
-      // ),
-    ),
-    actions: [
-      IconButton(
-        onPressed: () {
-          Navigator.pushNamed(context, Search.routeName);
-        },
-        icon: Icon(
-          Icons.search,
-          // color: AppColors.white,
-        ),
-      )
-    ],
-  );
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      actions: const [
+        SearchIconButton(),
+      ],
+      title: const AppBarTitle(),
+      centerTitle: true,
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

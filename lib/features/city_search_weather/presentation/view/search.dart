@@ -5,9 +5,7 @@ import '../view_model/weather_api/api_request.dart';
 
 class Search extends StatelessWidget {
   Search({super.key});
-
-  static String routeName = "search";
-  ApiRequest obj = ApiRequest(dio: Dio());
+  ApiRequest obj = ApiRequest();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
