@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/utiles/fonts.dart';
-
+import '../../../../../../core/shared_widgets/custom_text.dart';
 import '../../../../../../core/utiles/colors.dart';
+import '../../../../../../core/utiles/fonts.dart';
 
 class AppBarTitle extends StatelessWidget {
-  const AppBarTitle({super.key});
+  AppBarTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "WEATHER APP",
-      style: AppFonts.font30.copyWith(color: AppColors.primary),
-    );
+    return CustomText(
+        text: '"WEATHER APP"',
+        style: AppFonts.font30.copyWith(color: AppColors.primary));
   }
 }

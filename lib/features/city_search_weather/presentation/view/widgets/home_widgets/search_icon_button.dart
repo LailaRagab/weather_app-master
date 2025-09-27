@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/utiles/colors.dart';
 
-class SearchIconButton extends StatelessWidget {
-  const SearchIconButton({super.key});
+import '../../../view_model/weather_api/api_request.dart';
 
+class SearchIconButton extends StatelessWidget {
+  SearchIconButton({super.key, required this.cityName});
+  ApiRequest apiRequest = ApiRequest();
+  final String cityName;
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
-      icon: const Icon(
+      onPressed: () {
+        apiRequest.getCurrentWeather(cityName: cityName, context: context);
+      },
+      icon: Icon(
         Icons.search,
       ),
       color: AppColors.primary,
