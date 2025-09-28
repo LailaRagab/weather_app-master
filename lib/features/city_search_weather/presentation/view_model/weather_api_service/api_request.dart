@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import '../../../../../core/constants/constants.dart';
 import '../../../models/weather_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class WeatherController extends GetxController {
   String base = 'https://api.weatherapi.com/v1';
@@ -9,6 +10,17 @@ class WeatherController extends GetxController {
   var isLoading = false.obs;
   var errorMessage = ''.obs;
   var weather = Rxn<WeatherModel>();
+  var box = Hive.box('weatherBox');
+
+  @override
+  void onInit() {
+    super.onInit();
+    var box = Hive.box('weatherBox');
+    String? lastCity = box.get('lastCity');
+    if (lastCity != null) {
+      getCurrentWeather(cityName: lastCity);
+    }
+  }
 
   Future<WeatherModel?> getCurrentWeather({
     required String cityName,
@@ -21,6 +33,7 @@ class WeatherController extends GetxController {
         isLoading.value = false;
         WeatherModel weatherModel = WeatherModel.fromJson(response.data);
         weather.value = weatherModel;
+        box.put('lastCity', cityName);
         return weatherModel;
       }
     } on DioException catch (e) {
