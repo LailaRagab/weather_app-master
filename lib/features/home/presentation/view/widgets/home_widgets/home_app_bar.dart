@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'responsive_app_bar_textfield.dart';
-import 'responsive_app_bar_title.dart';
+import 'home_app_bar_textfield.dart';
+import 'home_app_bar_title.dart';
 
-class ResponsiveHomeAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  ResponsiveHomeAppBar({
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  HomeAppBar({
     super.key,
   });
   @override
@@ -19,11 +18,11 @@ class ResponsiveHomeAppBar extends StatelessWidget
           SizedBox(
             height: 30.h,
           ),
-          const ResponsiveAppBarTitle(),
+          const HomeAppBarTitle(),
           SizedBox(
             height: 20.h,
           ),
-          ResponsiveAppBarTextfield(
+          HomeAppBarTextfield(
             formKey: formKey,
           ),
         ]),

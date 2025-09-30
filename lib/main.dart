@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:weather_app/features/city_search_weather/presentation/view/responsive_home_view.dart';
-import 'features/city_search_weather/presentation/view_model/weather_api_service/api_request.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'features/home/data/controller/weather_controller.dart';
+import 'features/home/presentation/view/home_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

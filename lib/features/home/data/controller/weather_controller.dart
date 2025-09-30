@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 import '../../../../../core/constants/constants.dart';
-import '../../../models/weather_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../../../core/networking/networking.dart';
+import '../../models/weather_model.dart';
+
 class WeatherController extends GetxController {
-  String base = 'https://api.weatherapi.com/v1';
   String apiKey = 'a7e7ec4b47894195b95163710242812';
   var isLoading = false.obs;
   var errorMessage = ''.obs;
@@ -27,8 +28,8 @@ class WeatherController extends GetxController {
   }) async {
     try {
       isLoading.value = true;
-      Response response = await Constants.dio
-          .get('$base/forecast.json?key=$apiKey&q=$cityName&days=1');
+      Response response = await Constants.dio.get(
+          '${Networking.base}/forecast.json?key=$apiKey&q=$cityName&days=1');
       if (response.statusCode == 200) {
         isLoading.value = false;
         WeatherModel weatherModel = WeatherModel.fromJson(response.data);

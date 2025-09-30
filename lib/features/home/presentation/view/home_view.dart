@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:weather_app/core/utiles/assets/responsive_fonts.dart';
-import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/responsive_home_app_bar.dart';
-import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/responsive_home_empty_body.dart';
-import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/responsive_home_weather_body.dart';
+import 'package:weather_app/core/utiles/assets/fonts.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/home_widgets/home_app_bar.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/home_widgets/home_before_get_weather.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/home_widgets/home_weather_body.dart';
 
 import '../../../../core/shared_widgets/custom_text.dart';
-import '../view_model/weather_api_service/api_request.dart';
+import '../../data/controller/weather_controller.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: ResponsiveHomeAppBar(),
+        appBar: HomeAppBar(),
         body: Obx(() {
           if (controller.isLoading.value) {
             return const Center(child: CircularProgressIndicator());
@@ -23,12 +23,11 @@ class HomeView extends StatelessWidget {
             return Center(
                 child: CustomText(
                     text: controller.errorMessage.value,
-                    style: ResponsiveAppFonts.font26.copyWith(fontSize: 15)));
+                    style: AppFonts.font26.copyWith(fontSize: 15)));
           } else if (controller.weather.value == null) {
-            return const ResponsiveHomeEmptyBody();
+            return const HomeBeforeGetWeather();
           } else {
-            return ResponsiveHomeWeatherBody(
-                weatherModel: controller.weather.value!);
+            return HomeWeatherBody(weatherModel: controller.weather.value!);
           }
         }),
       ),

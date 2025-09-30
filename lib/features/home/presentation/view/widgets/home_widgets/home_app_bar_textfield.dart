@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:weather_app/features/city_search_weather/presentation/view/widgets/home_widgets/responsive_search_icon_button.dart';
+import 'package:weather_app/features/home/presentation/view/widgets/home_widgets/search_icon_button.dart';
 import '../../../../../../core/utiles/assets/colors.dart';
-import '../../../../../../core/utiles/assets/responsive_fonts.dart';
+import '../../../../../../core/utiles/assets/fonts.dart';
 
-class ResponsiveAppBarTextfield extends StatefulWidget {
-  ResponsiveAppBarTextfield({super.key, required this.formKey});
+class HomeAppBarTextfield extends StatefulWidget {
+  HomeAppBarTextfield({super.key, required this.formKey});
   final GlobalKey formKey;
   TextEditingController editController = TextEditingController();
   @override
-  State<ResponsiveAppBarTextfield> createState() =>
-      _ResponsiveAppBarTextfieldState();
+  State<HomeAppBarTextfield> createState() => _HomeAppBarTextfieldState();
 
   TextEditingController get editControllerget {
     return editController;
   }
 }
 
-class _ResponsiveAppBarTextfieldState extends State<ResponsiveAppBarTextfield> {
+class _HomeAppBarTextfieldState extends State<HomeAppBarTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -37,7 +36,7 @@ class _ResponsiveAppBarTextfieldState extends State<ResponsiveAppBarTextfield> {
       decoration: InputDecoration(
           hintText: "Search city name",
           iconColor: AppColors.primary,
-          hintStyle: ResponsiveAppFonts.font26.copyWith(fontSize: 14.sp),
+          hintStyle: AppFonts.font26.copyWith(fontSize: 14.sp),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20.sp),
               borderSide: BorderSide.none),
@@ -49,7 +48,7 @@ class _ResponsiveAppBarTextfieldState extends State<ResponsiveAppBarTextfield> {
               borderSide: BorderSide.none),
           filled: true,
           fillColor: AppColors.grey,
-          suffixIcon: ResponsiveSearchIconButton(
+          suffixIcon: SearchIconButton(
               controller: widget.editController, formKey: widget.formKey)),
     );
   }

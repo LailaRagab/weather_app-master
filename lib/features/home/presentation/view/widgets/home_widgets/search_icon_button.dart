@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../core/utiles/assets/colors.dart';
-import '../../../view_model/weather_api_service/api_request.dart';
+import '../../../../data/controller/weather_controller.dart';
 
-class ResponsiveSearchIconButton extends StatelessWidget {
-  const ResponsiveSearchIconButton(
+class SearchIconButton extends StatelessWidget {
+  const SearchIconButton(
       {super.key, required this.controller, required this.formKey});
   final TextEditingController controller;
   final formKey;
